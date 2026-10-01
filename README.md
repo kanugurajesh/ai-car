@@ -4,6 +4,26 @@ A population of neural networks learns to drive by natural selection. Nobody tea
 
 Pure vanilla JavaScript + HTML canvas. No frameworks, no ML libraries — the neural net, genetic algorithm, ray-casting and car physics are all written from scratch.
 
+## Demo
+
+| Generation 1–4: random brains | Generation ~80: trained drivers |
+| --- | --- |
+| ![Early generations crashing](docs/gen1.gif) | ![Trained generation lapping the track](docs/trained.gif) |
+
+Within a few dozen generations the best car completes all 3 laps, and the population average keeps climbing — visible in the *Laps per generation* chart:
+
+![Trained population with fitness chart and live brain view](docs/trained.png)
+
+### Race the AI
+
+![Racing against the evolved champion](docs/race.png)
+
+### Draw your own track
+
+| Sketch a loop | The AI drives it |
+| --- | --- |
+| ![Drawing a custom track](docs/draw.png) | ![AI racing on the custom track](docs/custom-track.png) |
+
 ## Run it
 
 No build step. Open `index.html` in a browser, or serve the folder:
