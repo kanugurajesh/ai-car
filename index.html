@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neuro Racer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <main class="stage" id="stage">
+      <canvas id="game"></canvas>
+      <div class="hud">
+        <div class="hud-item"><span>GEN</span><b id="hGen">1</b></div>
+        <div class="hud-item"><span>ALIVE</span><b id="hAlive">0</b></div>
+        <div class="hud-item"><span>LEADER LAPS</span><b id="hLap">0</b></div>
+        <div class="hud-item"><span>BEST LAP</span><b id="hBest">--</b></div>
+      </div>
+      <div class="banner" id="banner"></div>
+      <div class="toast" id="toast"></div>
+    </main>
+
+    <aside class="panel">
+      <header>
+        <h1>NEURO<span>RACER</span></h1>
+        <p>A population of neural networks learns to drive by natural selection. Nobody taught them — they just crash less every generation.</p>
+      </header>
+
+      <section>
+        <div class="row">
+          <button id="btnPause">Pause</button>
+          <button id="btnReset">Reset AI</button>
+        </div>
+        <label class="field">Track
+          <select id="selTrack"></select>
+        </label>
+        <div class="row">
+          <button id="btnDraw">Draw track</button>
+          <button id="btnRace" class="accent">Race the AI</button>
+        </div>
+      </section>
+
+      <section>
+        <label class="field">Sim speed <output id="oSpeed"></output>
+          <input type="range" id="rSpeed" min="1" max="50" value="5">
+        </label>
+        <label class="check"><input type="checkbox" id="cTurbo"> Turbo (as fast as your CPU allows)</label>
+        <label class="field">Population <output id="oPop"></output>
+          <input type="range" id="rPop" min="10" max="200" step="10" value="60">
+        </label>
+        <label class="field">Mutation rate <output id="oMut"></output>
+          <input type="range" id="rMut" min="1" max="50" value="10">
+        </label>
+        <label class="check"><input type="checkbox" id="cFollow"> Follow leader camera</label>
+        <label class="check"><input type="checkbox" id="cSensors" checked> Show leader's sensors</label>
+      </section>
+
+      <section>
+        <h2>Leader's brain <small>live activations</small></h2>
+        <canvas id="brain"></canvas>
+      </section>
+
+      <section>
+        <h2>Laps per generation <small><i class="key gold"></i>best <i class="key cyan"></i>avg</small></h2>
+        <canvas id="chart"></canvas>
+      </section>
+
+      <section>
+        <div class="row">
+          <button id="btnSave">Save champion</button>
+          <button id="btnLoad">Load champion</button>
+        </div>
+        <p class="hint">Space: pause · Race mode: arrows/WASD, R rematch, Esc exit</p>
+      </section>
+    </aside>
+  </div>
+
+  <script src="js/nn.js"></script>
+  <script src="js/track.js"></script>
+  <script src="js/car.js"></script>
+  <script src="js/ga.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
